@@ -1,17 +1,19 @@
 import React from "react";
+import { Post } from ".";
 
-const card = {
-  title: "Title Title Title",
-  date: "24th June 2024",
+type Props = {
+  post: Post;
 };
 
-const Card = () => {
+const Card = (props: Props) => {
   return (
     <div className="p-2 bg-green-700">
       <div className="w-[314px] h-[368px] bg-green-300"></div>
       <div className="w-[314px]">
-        <div className="text-xl pt-4 ">{card.title}</div>
-        <div className="text-base text-[#A1A0A0] pt-3 ">{card.date}</div>
+        <div className="text-xl pt-4 ">{props.post.title}</div>
+        <div className="text-base text-[#A1A0A0] pt-3 ">
+          {props.post.createdAt.toDateString()}
+        </div>
       </div>
     </div>
   );
