@@ -1,5 +1,6 @@
 import { text } from "stream/consumers";
 import type { Config } from "tailwindcss";
+import daisyui from "daisyui";
 
 const config: Config = {
   content: [
@@ -15,24 +16,21 @@ const config: Config = {
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
       },
       fontFamily: {
-        display: 'Roboto', // Adds a new `font-display` class
+        display: "Roboto", // Adds a new `font-display` class
       },
       colors: {
         gray: {
-          '100':'#F2F2F2',
-          '200': '#D9D9D9',
-          '300': '#C8C8C8',
-           '400': '#969696',
-          '500': '#727272',
-          '600': '#333333',
-          '700':'#2A2A2A',
+          "100": "#F2F2F2",
+          "200": "#D9D9D9",
+          "300": "#C8C8C8",
+          "400": "#969696",
+          "500": "#727272",
+          "600": "#333333",
+          "700": "#2A2A2A",
         },
-
-      }
-
+      },
     },
-
   },
-  plugins: [],
+  plugins: [daisyui],
 };
 export default config;

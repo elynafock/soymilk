@@ -3,10 +3,10 @@ import ShareIcon from "./ShareIcon";
 
 const ShareLink = () => {
   return (
-    <div className="flex-row flex items-center gap-2">
+    <button className="flex-row flex items-center gap-2">
       <ShareIcon />
-      <button className="text-gray-500"> Share Link</button>
-    </div>
+      <div className="text-gray-500"> Share Link</div>
+    </button>
   );
 };
 
