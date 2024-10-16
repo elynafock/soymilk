@@ -6,13 +6,20 @@ import { createClient } from "@/utils/supabase/server";
 import Footer from "./Footer";
 import NewArtwork from "./NewArtwork";
 
-export default async function Home() {
+type Props = {
+  searchParams: {
+    q?: string;
+  };
+};
+
+export default async function Home({ searchParams }: Props) {
   const supabase = createClient();
   const { data: posts, error } = await supabase.from("posts").select(`
     *,
     img:images(*)
     `);
   const { data } = await supabase.auth.getUser();
+  console.log(searchParams);
 
   return (
     <main className="w-full">
@@ -27,7 +34,15 @@ export default async function Home() {
             </div>
           ) : null}
 
-          <Masonry posts={posts as Post[]} />
+          <Masonry
+            posts={(posts as Post[]).filter((post) =>
+              searchParams.q
+                ? post.title
+                    ?.toLowerCase()
+                    ?.includes(searchParams.q.toLowerCase())
+                : true
+            )}
+          />
         </div>
       </div>
       <Footer />
