@@ -12,19 +12,20 @@ export default async function Home() {
     *,
     img:images(*)
     `);
-  // console.log(posts);
+  const { data } = await supabase.auth.getUser();
 
   return (
     <main className="w-full">
       {/* className="flex min-h-screen flex-col items-center justify-between p-24" */}
-      <Navigation />
+      <Navigation user={data.user} />
       <div className="flex flex-col items-center pt-16 	">
         <div className="w-full max-w-screen-lg gap-16 flex flex-col items-stretch">
           <Banner />
-
-          <div className="w-full flex justify-center	">
-            <NewArtwork />
-          </div>
+          {data.user ? (
+            <div className="w-full flex justify-center	">
+              <NewArtwork />
+            </div>
+          ) : null}
 
           <Masonry posts={posts as Post[]} />
         </div>
