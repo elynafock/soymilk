@@ -19,7 +19,6 @@ export default async function Home({ searchParams }: Props) {
     img:images(*)
     `);
   const { data } = await supabase.auth.getUser();
-  console.log(searchParams);
 
   return (
     <main className="w-full">
@@ -35,7 +34,7 @@ export default async function Home({ searchParams }: Props) {
           ) : null}
 
           <Masonry
-            posts={(posts as Post[]).filter((post) =>
+            posts={(posts as Post[])?.filter((post) =>
               searchParams.q
                 ? post.title
                     ?.toLowerCase()

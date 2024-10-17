@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import GoogleIcon from "./GoogleIcon";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
@@ -44,13 +44,6 @@ const Login = (props: Props) => {
 
     if (error) {
       alert(error.message);
-    }
-  }
-
-  async function checkUser() {
-    const { data } = await supabase.auth.getUser();
-    if (data.user) {
-      setUser(data.user);
     }
   }
 
@@ -106,6 +99,9 @@ const Login = (props: Props) => {
             Sign Out
           </button>
         </div>
+        <form method="dialog" className="modal-backdrop">
+          <button>close</button>
+        </form>
       </dialog>
 
       <dialog id="sign" className="modal">
@@ -113,7 +109,7 @@ const Login = (props: Props) => {
           <h6 className="font-bold text-lg text-gray-700">
             Sign in or create an account
           </h6>
-          <div className="flex flex-col gap-4">
+          <form onSubmit={signInWithEmail} className="flex flex-col gap-4">
             <input
               type="text"
               className="bg-transparent border-gray-300 border-[1px] rounded-lg	py-2 px-6 w-full text-gray-700 outline-none"
@@ -130,11 +126,11 @@ const Login = (props: Props) => {
             />
             <button
               className=" bg-gray-700 rounded-lg	py-2 px-6 w-full"
-              onClick={signInWithEmail}
+              type="submit"
             >
               Continue
             </button>
-          </div>
+          </form>
           <div className="flex flex-row items-center">
             <div className="border-gray-200 border-[1px] flex-1 h-0"></div>
             <div className="px-4 text-gray-500">or</div>
