@@ -29,7 +29,10 @@ const Login = (props: Props) => {
   const [password, setPassword] = useState("");
   const router = useRouter();
 
-  async function signInWithEmail() {
+  const signInWithEmail: React.FormEventHandler<HTMLFormElement> = async (
+    event
+  ) => {
+    event.preventDefault();
     const { data, error } = await supabase.auth.signInWithPassword({
       email: email,
       password: password,
@@ -44,9 +47,9 @@ const Login = (props: Props) => {
     }
 
     if (error) {
-      alert(error.message);
+      alert(JSON.stringify(error));
     }
-  }
+  };
 
   async function signOut() {
     await supabase.auth.signOut();
