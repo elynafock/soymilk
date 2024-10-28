@@ -7,12 +7,11 @@ import Footer from "./Footer";
 import NewArtwork from "./NewArtwork";
 
 type Props = {
-  searchParams: {
-    q?: string;
-  };
+  searchParams: Promise<{ q: string }>;
 };
 
 export default async function Home({ searchParams }: Props) {
+  const s = await searchParams;
   const supabase = createClient();
   const { data: posts, error } = await supabase
     .from("posts")
@@ -41,10 +40,8 @@ export default async function Home({ searchParams }: Props) {
 
           <Masonry
             posts={(posts as Post[])?.filter((post) =>
-              searchParams.q
-                ? post.title
-                    ?.toLowerCase()
-                    ?.includes(searchParams.q.toLowerCase())
+              s.q
+                ? post.title?.toLowerCase()?.includes(s.q.toLowerCase())
                 : true
             )}
           />
