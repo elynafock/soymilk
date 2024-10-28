@@ -14,10 +14,16 @@ type Props = {
 
 export default async function Home({ searchParams }: Props) {
   const supabase = createClient();
-  const { data: posts, error } = await supabase.from("posts").select(`
+  const { data: posts, error } = await supabase
+    .from("posts")
+    .select(
+      `
     *,
     img:images(*)
-    `);
+    `
+    )
+    .order("created_at", { ascending: false });
+
   const { data } = await supabase.auth.getUser();
 
   return (

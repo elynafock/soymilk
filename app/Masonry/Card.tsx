@@ -10,7 +10,7 @@ type Props = {
 const Card = (props: Props) => {
   return (
     <div className=" bg-gray-600 rounded-3xl">
-      {props.post.img.url && (
+      {props.post.img?.url && (
         <Image
           src={props.post.img.url}
           className="w-full rounded-t-lg"
@@ -26,7 +26,7 @@ const Card = (props: Props) => {
             {new Date(props.post.created_at).toDateString()}
           </div>
         </div>
-        <MoreIcon />
+        {/* <MoreIcon /> */}
       </div>
     </div>
   );

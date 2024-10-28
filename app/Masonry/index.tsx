@@ -7,7 +7,7 @@ import useMediaQuery from "../hooks";
 export type Post = {
   id: number;
   title: string | null;
-  img: {
+  img?: {
     url: string | null;
     width: number;
     height: number;

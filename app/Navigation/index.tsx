@@ -10,7 +10,7 @@ type Props = {
 
 const Navigation = (props: Props) => {
   return (
-    <div className="flex flex-row px-6 py-2 justify-between w-full bg-gray-700 gap-4">
+    <div className="flex flex-row px-6 py-2 justify-between w-full bg-gray-700 gap-4 items-center">
       <Image
         src={"/logo_dark.png"}
         alt={"Logo"}
@@ -20,7 +20,6 @@ const Navigation = (props: Props) => {
       ></Image>
       <Search />
       <div className="gap-6 flex">
-        <ShareLink />
         <Login user={props.user} />
       </div>
     </div>

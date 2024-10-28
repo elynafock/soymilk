@@ -4,6 +4,7 @@ import React, { useState } from "react";
 import GoogleIcon from "./GoogleIcon";
 import { createClient } from "@/utils/supabase/client";
 import { useRouter } from "next/navigation";
+import index from "../Banner";
 
 const supabase = createClient();
 
@@ -39,7 +40,7 @@ const Login = (props: Props) => {
       alert("Successfully logged in!!!");
       (document.getElementById("sign") as HTMLDialogElement).close();
       setUser(data.user);
-      router.refresh();
+      window.location.reload();
     }
 
     if (error) {
@@ -51,7 +52,7 @@ const Login = (props: Props) => {
     await supabase.auth.signOut();
     setUser(null);
     (document.getElementById("signout") as HTMLDialogElement).close();
-    router.refresh();
+    window.location.reload();
   }
 
   return (
@@ -79,7 +80,7 @@ const Login = (props: Props) => {
       )}
 
       <dialog id="signout" className="modal">
-        <div className="modal-box bg-gray-100 gap-8 flex flex-col justify-center p-16 ">
+        <div className="modal-box bg-gray-300 gap-8 flex flex-col justify-center p-16 ">
           <div>
             <label htmlFor="" className="text-gray-700">
               Email
