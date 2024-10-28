@@ -12,7 +12,7 @@ type Props = {
 
 export default async function Home({ searchParams }: Props) {
   const s = await searchParams;
-  const supabase = createClient();
+  const supabase = await createClient();
   const { data: posts, error } = await supabase
     .from("posts")
     .select(
