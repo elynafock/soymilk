@@ -3,7 +3,7 @@ import Search from "./Search";
 import Login, { User } from "./Login";
 import ShareLink from "./ShareLink";
 import Image from "next/image";
-import Logo from "../../public/logo_dark.png";
+import Logo from "../../public/logoDark.png";
 
 type Props = {
   user: User | null;
