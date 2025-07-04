@@ -5,7 +5,7 @@ const user = {
   imageUrl: "",
   fullName: "Elyna Fock",
   description:
-    "I'm a Software Engineer who has become more interested in UI/UX design and digital illustration over time. As I learned more about coding, I also started to see how design and code can work together to create better digital experiences. This online gallery is part of that journey — a website I built to show and organize my artwork, combining both my tech skills and creativity.`",
+    "I'm a Software Engineer who became interested in UI/UX design and digital illustration over time. As I learned more about coding, I also saw how design and code can work together to create better digital experiences. This online gallery is part of that journey — a website I built to show and organize my artwork, combining both my tech skills and creativity.",
 };
 
 const SelfIntro = () => {
