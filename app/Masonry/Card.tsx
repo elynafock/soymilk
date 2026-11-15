@@ -21,7 +21,7 @@ const Card = (props: Props) => {
       )}
       <div className="flex items-center		">
         <div className="w-full py-8 px-6 flex flex-col ">
-          <div className="text-xl 	 ">{props.post.title}</div>
+          <div className="text-xl text-white">{props.post.title}</div>
           <div className="text-base text-gray-100 pt-3 ">
             {new Date(props.post.created_at).toDateString()}
           </div>

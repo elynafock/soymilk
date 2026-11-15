@@ -21,8 +21,8 @@ const SelfIntro = () => {
         />
       </div>
       <div className="flex-1">
-        <h1 className="text-[40px]">{user.fullName}</h1>
-        <h2 className="  line-clamp-4 text-[#A1A0A0] pt-4">
+        <h1 className="text-[40px] text-white">{user.fullName}</h1>
+        <h2 className="  line-clamp-3 text-[#A1A0A0] pt-4">
           {user.description}
         </h2>
       </div>

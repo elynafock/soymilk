@@ -19,7 +19,7 @@ export default async function Home({ searchParams }: Props) {
       `
     *,
     img:images(*)
-    `
+    `,
     )
     .order("created_at", { ascending: false });
 
@@ -29,7 +29,7 @@ export default async function Home({ searchParams }: Props) {
     <main className="w-full">
       {/* className="flex min-h-screen flex-col items-center justify-between p-24" */}
       <Navigation user={data.user} />
-      <div className="flex flex-col items-center pt-16 	">
+      <div className="flex flex-col items-center pt-16 bg-gray-700">
         <div className="w-full max-w-screen-lg gap-16 flex flex-col items-stretch">
           <Banner />
           {data.user ? (
@@ -42,7 +42,7 @@ export default async function Home({ searchParams }: Props) {
             posts={(posts as Post[])?.filter((post) =>
               s.q
                 ? post.title?.toLowerCase()?.includes(s.q.toLowerCase())
-                : true
+                : true,
             )}
           />
         </div>
